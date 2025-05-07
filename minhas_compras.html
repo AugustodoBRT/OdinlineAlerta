@@ -43,7 +43,7 @@
               </tr>
             </thead>
             <tbody id="lista-compras">
-              <!-- As compras serão inseridas aqui pelo JavaScript -->
+              
             </tbody>
           </table>
         </div>
@@ -51,7 +51,7 @@
     </div>
   </div>
   <script>
-    // Carrega o nome do usuário logado
+    
     document.addEventListener('DOMContentLoaded', function() {
         const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
         if (usuario && usuario.nome) {
@@ -59,7 +59,7 @@
         }
     });
 
-    // Função de logout
+    
     function logout() {
         localStorage.removeItem('usuarioLogado');
         window.location.href = 'index.html';

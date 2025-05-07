@@ -1,4 +1,4 @@
-// Verifica se o usuário está logado
+
 const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
 if (!usuario || !usuario.chave) {
   alert("Você precisa estar logado.");
@@ -11,7 +11,7 @@ const inputProduto = document.getElementById('produto-id');
 const inputValor = document.getElementById('valor-desejado');
 const selectAcao = document.getElementById('acao');
 
-// Mostra produtos cadastrados no perfil
+
 function carregarProdutos() {
   fetch(`https://api-odinline.odiloncorrea.com/produto/${usuario.chave}/usuario`)
     .then(response => response.json())
@@ -36,7 +36,7 @@ function carregarProdutos() {
     });
 }
 
-// Envia alerta
+
 formAlerta.addEventListener('submit', function (e) {
   e.preventDefault();
 
@@ -65,7 +65,7 @@ formAlerta.addEventListener('submit', function (e) {
   formAlerta.reset();
 });
 
-// Monitoramento dos preços a cada 10s
+
 setInterval(() => {
   let alertas = JSON.parse(localStorage.getItem('alertas')) || [];
 
@@ -90,17 +90,17 @@ setInterval(() => {
         alert(`🛒 Compra registrada: ${produto.descricao} por R$${precoAtual}`);
       }
 
-      // Marcar alerta como executado
+      
       alertas[index].status = 'executado';
       localStorage.setItem('alertas', JSON.stringify(alertas));
     }
   });
 }, 10000);
 
-// Carrega produtos ao entrar
+
 carregarProdutos();
 
-// Logout
+
 function logout() {
   localStorage.removeItem('usuarioLogado');
   window.location.href = 'index.html';

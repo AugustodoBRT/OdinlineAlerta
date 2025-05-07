@@ -1,4 +1,4 @@
-// Remove a função carregar() completamente - não é necessária
+
 
 $("#formulario").validate({
     rules: {
@@ -29,7 +29,7 @@ async function autenticar() {
                 throw new Error('Usuário ou senha inválidos');
             }
 
-            // Armazena apenas o objeto do usuário, não um array
+           
             localStorage.setItem('usuarioLogado', JSON.stringify(usuario));
             alert("Login realizado com sucesso!");
             window.location.href = "menu.html";
@@ -41,11 +41,11 @@ async function autenticar() {
     }
 }
 
-// Verifica se já está logado ao carregar a página
+
 $(document).ready(function() {
     const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
     if (usuario?.id) {
-        // Se já estiver logado, redireciona para o menu
+        
         window.location.href = "menu.html";
     }
 });
